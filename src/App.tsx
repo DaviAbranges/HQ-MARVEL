@@ -1,9 +1,7 @@
-import IndexComponent from "./components";
-
+import IndexComponent from "./screens/Comics";
 
 function App() {
   return (
-    
     <>
       <IndexComponent />
     </>

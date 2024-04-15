@@ -1,9 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import ReactDOM from "react-dom";
+import App from "./App.tsx";
+import ComicDetail from "./components/comicDetail.tsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/comicdetails" element={<ComicDetail />} />
+    </Routes>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
