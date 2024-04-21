@@ -1,9 +1,6 @@
-import { ButtonNextPrevProps } from "../interfaces/comics";
-
-export default function ButtonNextPrev({ increaseLimit }: ButtonNextPrevProps) {
+export default function ButtonNextPrev() {
   const handleIncreaseLimit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    increaseLimit();
   };
   return (
     <div className="inline-flex pb-10">

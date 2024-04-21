@@ -1,9 +1,9 @@
-import IndexComponent from "./screens/Comics";
+import Comics from "./screens/Comics";
 
 function App() {
   return (
     <>
-      <IndexComponent />
+      <Comics />
     </>
   );
 }

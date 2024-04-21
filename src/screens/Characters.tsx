@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
-import { fetchAllComics } from "../API/ComicApi";
-import Comic from "../interfaces/comics";
+import { fetchAllCharacters } from "../API/ComicApi";
 import loadingImage from "../../public/loading-image.png";
 import { Link } from "react-router-dom";
+import type { Characters } from "../interfaces/characters";
 
-function Comics() {
-  const [comics, setComics] = useState<Comic[]>([]);
+function Characters() {
+  const [characters, setCharacters] = useState<Characters[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchComics = async () => {
+    const fetchCharacters = async () => {
       try {
-        const data = await fetchAllComics();
+        const data = await fetchAllCharacters();
         console.log(`data ${data}`);
 
-        setComics(data);
+        setCharacters(data);
         setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar quadrinhos:", error);
         setLoading(false);
       }
     };
-    fetchComics();
+    fetchCharacters();
   }, []);
 
   if (loading) {
@@ -42,20 +42,20 @@ function Comics() {
   return (
     <div className="backdrop-brightness-150 min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-6xl font-bold gradient-text my-16 text-center">
-        COMICS MARVEL
+        CHARACTERS MARVEL
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-screen-2xl m-5">
-        {comics.map((comic) => (
-          <Link key={comic.id} to={`/comicdetails/${comic.id}`}>
+        {characters.map((character) => (
+          <Link key={character.id} to={`/characterdetails/${character.id}`}>
             <div className="relative rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform">
               <img
-                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                alt={comic.title}
+                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                alt={character.name}
                 className="w-full h-60 object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/60 to-transparent px-5">
-                <p className="text-white font-bold text-lg">{comic.title}</p>
+                <p className="text-white font-bold text-lg">{character.name}</p>
               </div>
             </div>
           </Link>
@@ -65,4 +65,4 @@ function Comics() {
   );
 }
 
-export default Comics;
+export default Characters;
