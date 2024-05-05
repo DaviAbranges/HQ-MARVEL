@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchAllComics } from "../API/ComicApi";
 import Comic from "../interfaces/comics";
-import loadingImage from "../../public/loading-image.png";
+import loadingImage from "../images/loading-image.png";
 import { Link } from "react-router-dom";
 
 function Comics() {
@@ -26,7 +26,7 @@ function Comics() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center ">
         <div className="text-center align-middle">
           <img
             src={loadingImage}

@@ -1,15 +1,14 @@
-import { Items } from "./comics";
+import { Items, Thumbnail } from "./comics";
 
 export interface Characters {
   id: number;
   name: string;
   description: string;
   thumbnail: Thumbnail;
-  characters: Characters;
-  comics: Items;
+  comics: Comics;
+  series: Comics;
 }
 
-export interface Thumbnail {
-  path: string;
-  extension: string;
+export interface Comics {
+  items: Items[];
 }

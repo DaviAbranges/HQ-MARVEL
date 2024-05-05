@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchAllCharacters } from "../API/ComicApi";
-import loadingImage from "../../public/loading-image.png";
+import loadingImage from "../images/loading-image.png";
 import { Link } from "react-router-dom";
 import type { Characters } from "../interfaces/characters";
 
